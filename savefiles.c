@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void escreve_texto(int value)
+typedef int value_t;
+
+void escreve_texto(value_t value)
 {
     // Ponteiro para arquivos
     FILE *fptr;
@@ -22,7 +24,7 @@ void escreve_texto(int value)
 }
 
 
-void escreve_binario(int value)
+void escreve_binario(value_t value)
 {
     // Ponteiro para arquivos
     FILE *fptr;
@@ -37,8 +39,6 @@ void escreve_binario(int value)
     }
 
     // Escrita em binário
-    int x = 32;
-
     fwrite(&value,sizeof(value),1, fptr);
     
     fclose(fptr);
@@ -46,7 +46,7 @@ void escreve_binario(int value)
 
 int main() {
  
-    int x = 32;
+    value_t x = 32;
     escreve_texto(x);
     escreve_binario(x);
 
